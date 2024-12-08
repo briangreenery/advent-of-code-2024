@@ -37,9 +37,9 @@ Object.keys(nodes).forEach(key => {
         for (let j = i + 1; j < list.length; j += 1) {
             let b = list[j];
 
-            for (let k = 0; k < 100; k += 1) {
-                let xn = a.x - k * ( b.x - a.x );
-                let yn = a.y - k * ( b.y - a.y );
+            for (let k = 0; ; k += 1) {
+                let xn = a.x - k * (b.x - a.x);
+                let yn = a.y - k * (b.y - a.y);
 
                 if (!ok(xn, yn)) {
                     break;
@@ -47,9 +47,9 @@ Object.keys(nodes).forEach(key => {
                 set.add(`${xn},${yn}`);
             }
 
-            for (let k = 0; k < 100; k += 1) {
-                let xn = b.x - k * ( a.x - b.x );
-                let yn = b.y - k * ( a.y - b.y );
+            for (let k = 0; ; k += 1) {
+                let xn = b.x - k * (a.x - b.x);
+                let yn = b.y - k * (a.y - b.y);
 
                 if (!ok(xn, yn)) {
                     break;
