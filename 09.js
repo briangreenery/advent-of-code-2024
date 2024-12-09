@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { off } = require('process');
 
 let input = fs.readFileSync('input.txt').toString().trim().split('').map(Number);
 
