@@ -15,13 +15,11 @@ function count(pattern, i, memo) {
     }
 
     let ans = 0;
-
-    for (let j = 0; j < towels.length; j += 1) {
-        let towel = towels[j];
+    towels.forEach(towel => {
         if (pattern.startsWith(towel, i)) {
             ans += count(pattern, i + towel.length, memo);
         }
-    }
+    });
 
     memo[i] = ans;
     return ans;
@@ -30,23 +28,15 @@ function count(pattern, i, memo) {
 let max = 0;
 lines.forEach(line => max = Math.max(max, line.length));
 
-let memo = [];
-for (let i = 0; i < max; i += 1) {
-    memo.push(-1);
-}
-
 let sum = 0;
 let distinct = 0;
 
 lines.forEach(line => {
+    let memo = new Array(max).fill(-1);
     let result = count(line, 0, memo);
     if (result > 0) {
         sum += 1;
         distinct += result;
-    }
-
-    for (let i = 0; i < max; i += 1) {
-        memo[i] = -1;
     }
 });
 console.log(sum);
